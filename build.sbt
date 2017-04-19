@@ -25,7 +25,7 @@ val sparkVersion = "1.6.0"
 val scalatraVersion = "2.3.1"
 val jettyVersion = "9.2.5.v20141112"
 val apacheHttpVersion = "4.3.3"
-val kafkaVersion = "0.8.2.2"
+val kafkaVersion = "0.10.2.0"
 val airlineVersion = "0.7"
 
 def dependOnDruid(artifact: String) = {
@@ -178,7 +178,7 @@ lazy val commonSettings = Seq(
   javacOptions in compile ++= Seq("-source", "1.7", "-target", "1.7"),
 
   // resolve-term-conflict:object since storm-core has a package and object with the same name
-  scalacOptions := Seq("-feature", "-deprecation", "-Yresolve-term-conflict:object"),
+  scalacOptions := Seq("-feature", "-deprecation", "-Yresolve-term-conflict:object", "-Xmax-classfile-name","78"),
 
   licenses := Seq("Apache License, Version 2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")),
 
